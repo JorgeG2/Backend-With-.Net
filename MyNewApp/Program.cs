@@ -1,12 +1,20 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Rewrite;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 var todos = new List<Todo>();
 
 app.UseRewriter(new RewriteOptions().AddRedirect("tasks/(.*)", "todos/$1"));
-
+app.Use(async (context, next) =>
+{
+   Console.WriteLine($"Request for {context.Request.Path}");
+   await next();
+    Console.WriteLine($"[context.Response.StatusCode] {context.Response.StatusCode}");
+   
+});
 //Below are the routes for the API such as GET, POST, DELETE
 app.MapGet("/todos", () => todos);
 

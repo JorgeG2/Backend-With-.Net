@@ -1,6 +1,6 @@
 
 
-GET http://localhost:5175/todos
+# GET http://localhost:5175/todos
 
 # POST http://localhost:5175/todos
 # Content-Type: application/json
@@ -26,4 +26,8 @@ GET http://localhost:5175/todos
 
 # DELETE http://localhost:5175/2
 
-# GET http://localhost:5000/tasks/1
+GET http://localhost:5175/tasks/1
+# GET http://localhost:5175/todos/2
+
+# GET http://localhost:5175/tasks/2
+
